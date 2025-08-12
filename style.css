@@ -8,6 +8,7 @@
 :root{
     --color-cyan:#00ffffd1;
     --color-body:rgb(5, 16, 27);
+    
 }
 body{
     scroll-behavior: smooth !important;
@@ -209,9 +210,7 @@ h1 b::before{
     
 }
 
-.AboutMe{
-    /* height: 100vh; */
-}
+
 .AboutMe .card-experience{
     height: 300px;
     padding: 50px;
@@ -305,31 +304,67 @@ h1 b::before{
     -o-border-radius: 50%;
 
 }
+
 .servies .card-manthe{
+   position: relative;
    margin-top: 5rem;
    border-radius:10px ;
    padding: 20px;
-   background-color: rgba(0, 255, 255, 0.514);
+   background-color: rgb(2, 29, 39);
    -webkit-border-radius:10px ;
    -moz-border-radius:10px ;
    -ms-border-radius:10px ;
    -o-border-radius:10px ;
-   transition: .5s;
-   -webkit-transition: .5s;
-   -moz-transition: .5s;
-   -ms-transition: .5s;
-   -o-transition: .5s;
+   transition: 1s;
+   -webkit-transition: 1s;
+   -moz-transition: 1s;
+   -ms-transition: 1s;
+   -o-transition: 1s;
 }
-.servies .card-manthe:hover{
-    cursor: pointer;
 
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    box-shadow: 1px 1px 20px var(--color-cyan);
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
+.servies .card-manthe::after , .servies .card-manthe::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle),transparent 50%,orange,aqua);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 95px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    animation: 2s spin linear infinite  ;
+    -webkit-animation: 2s spin linear infinite  ;
+}
+
+.servies .card-manthe::before{
+    filter: blur(1.5rem);
+    -webkit-filter: blur(1.5rem);
+    opacity: 0.5;
+}
+@keyframes spin{
+    from{
+        --angle:0deg;
+        
+    }
+    to{
+        --angle:360deg;
+       
+
+    }
+    
+}
+
 .card-iframe{
     display: flex;
     align-items: center;
